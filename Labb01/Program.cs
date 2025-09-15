@@ -4,7 +4,7 @@ string userInput = Console.ReadLine();
 int nextIndex = 0;
 int startIndex = 0;
 long sum = 0l;
-bool notNumber = false;
+bool isDigits = false;
 bool exit = false;
 
 while (!exit)
@@ -24,8 +24,8 @@ while (!exit)
     if (nextIndex > -1)
     {
 
-        notNumber = StringIsDigit(userInput.Substring(startIndex, nextIndex + 1 - startIndex));
-        if (notNumber)
+        isDigits = StringIsDigit(userInput.Substring(startIndex, nextIndex + 1 - startIndex));
+        if (!isDigits)
         {
             startIndex++;
             continue;
@@ -51,10 +51,10 @@ static bool StringIsDigit(string partOfString)
     {
         if (!char.IsDigit(letter))
         {
-            return true;           
+            return false;           
         }
     }
-    return false;
+    return true;
 }
 
 
